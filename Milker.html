@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Isimbi Milker Queen 👑</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    font-family:"Segoe UI",Arial,sans-serif;
+    background:#050207;
+    color:#fff;
+    overflow:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(115,35,170,.35),transparent 32%),
+        radial-gradient(circle at 80% 80%,rgba(255,205,70,.12),transparent 30%),
+        radial-gradient(circle at 50% 50%,rgba(70,15,100,.18),transparent 50%),
+        #050207;
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#ffd75e;
+    border-radius:50%;
+    box-shadow:0 0 12px #ffd75e;
+    animation:twinkle 2s infinite alternate;
+}
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    display:none;
+    opacity:0;
+    transform:translateX(60px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.page.active{
+    display:block;
+}
+
+.page.show{
+    opacity:1;
+    transform:translateX(0);
+}
+
+.page.exit{
+    opacity:0;
+    transform:translateX(-60px);
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.page-content{
+    min-height:100%;
+    width:min(1100px,92%);
+    margin:auto;
+    padding:70px 0 120px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.center{
+    text-align:center;
+    align-items:center;
+}
+
+.crown{
+    font-size:70px;
+    animation:float 3s ease-in-out infinite;
+}
+
+.gold{
+    color:#ffd75e;
+}
+
+.subtitle{
+    color:#c9b9d4;
+    line-height:1.8;
+    max-width:750px;
+    text-align:center;
+}
+
+.title{
+    font-size:clamp(2.7rem,8vw,6.5rem);
+    line-height:1;
+    margin:18px 0;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #ffd75e,
+        #b85cff,
+        #fff
+    );
+
+    background-size:300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    animation:gradient 5s linear infinite;
+}
+
+.section-title{
+    font-size:clamp(2rem,5vw,4rem);
+    color:#ffd75e;
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.small-title{
+    color:#d9c6e5;
+    text-align:center;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:.8rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.btn{
+    border:none;
+    padding:15px 30px;
+    border-radius:40px;
+    cursor:pointer;
+
+    font-size:1rem;
+    font-weight:bold;
+
+    color:white;
+    background:linear-gradient(135deg,#67239a,#9d46d0);
+
+    box-shadow:0 10px 30px rgba(112,40,160,.35);
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 40px rgba(153,65,210,.5);
+}
+
+.btn.gold-btn{
+    background:linear-gradient(135deg,#b98518,#ffd75e);
+    color:#140a18;
+}
+
+.btn.back{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:none;
+}
+
+/* =========================
+   PAGE 1
+   BIRTHDAY CHECK
+========================= */
+
+#page1 .page-content{
+    text-align:center;
+}
+
+.lock-card{
+    width:min(600px,100%);
+    padding:45px 30px;
+
+    border-radius:30px;
+
+    background:rgba(18,7,27,.85);
+    border:1px solid rgba(255,215,94,.3);
+
+    box-shadow:
+        0 0 80px rgba(111,35,160,.25),
+        inset 0 0 40px rgba(255,215,94,.03);
+
+    backdrop-filter:blur(15px);
+}
+
+.lock-card h1{
+    color:#ffd75e;
+    font-size:clamp(2rem,6vw,3.5rem);
+    margin:15px 0;
+}
+
+.lock-card p{
+    color:#c8bacf;
+    line-height:1.7;
+}
+
+#birthdayInput{
+    width:min(360px,100%);
+    margin-top:25px;
+
+    padding:16px;
+    border-radius:14px;
+
+    background:#0c0610;
+    color:white;
+
+    border:1px solid rgba(255,215,94,.45);
+
+    font-size:1rem;
+    outline:none;
+}
+
+#birthdayInput:focus{
+    border-color:#ffd75e;
+    box-shadow:0 0 25px rgba(255,215,94,.15);
+}
+
+#dateMessage{
+    min-height:30px;
+    margin-top:18px;
+    color:#ffd75e;
+    font-weight:bold;
+}
+
+.shake{
+    animation:shake .45s;
+}
+
+/* =========================
+   PAGE 2
+========================= */
+
+.welcome-ring{
+    width:210px;
+    height:210px;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:2px solid #ffd75e;
+
+    box-shadow:
+        0 0 30px rgba(255,215,94,.25),
+        inset 0 0 30px rgba(120,40,170,.2);
+
+    margin-bottom:25px;
+}
+
+/* =========================
+   PAGE 3 MESSAGE
+========================= */
+
+.message-card{
+    width:min(900px,100%);
+    margin:auto;
+
+    padding:40px;
+
+    background:rgba(18,7,27,.78);
+    border:1px solid rgba(255,215,94,.15);
+
+    border-radius:25px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.message-card p{
+    color:#d7cedd;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.highlight{
+    color:#ffd75e !important;
+    font-weight:bold;
+}
+
+/* =========================
+   PAGE 4 MEMORIES
+========================= */
+
+.timeline{
+    max-width:850px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:2px;
+
+    background:linear-gradient(
+        transparent,
+        #ffd75e,
+        #7c32a8,
+        transparent
+    );
+}
+
+.memory{
+    width:50%;
+    padding:20px;
+    position:relative;
+}
+
+.memory:nth-child(even){
+    margin-left:50%;
+}
+
+.memory-card{
+    padding:25px;
+    background:rgba(20,7,29,.8);
+    border:1px solid rgba(255,215,94,.14);
+    border-radius:20px;
+}
+
+.memory-card h3{
+    color:#ffd75e;
+    margin-bottom:10px;
+}
+
+.memory-card p{
+    color:#bdb1c5;
+    line-height:1.7;
+}
+
+/* =========================
+   PAGE 5 PHOTOS
+========================= */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.photo{
+    min-height:300px;
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(135deg,#1a0922,#08040c);
+
+    border:1px solid rgba(255,215,94,.18);
+
+    transition:.4s;
+}
+
+.photo:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,215,94,.55);
+    box-shadow:0 20px 50px rgba(0,0,0,.45);
+}
+
+.photo img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.placeholder{
+    text-align:center;
+    color:#9f91a9;
+    z-index:2;
+}
+
+.placeholder strong{
+    display:block;
+    color:#ffd75e;
+    margin-bottom:8px;
+}
+
+/* =========================
+   PAGE 6 APPRECIATION
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.app-card{
+    padding:35px 25px;
+    text-align:center;
+
+    background:rgba(20,7,29,.75);
+    border-radius:22px;
+
+    border:1px solid rgba(255,215,94,.13);
+
+    transition:.4s;
+}
+
+.app-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(255,215,94,.4);
+}
+
+.app-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.app-card h3{
+    color:#ffd75e;
+    margin-bottom:12px;
+}
+
+.app-card p{
+    color:#bdb1c5;
+    line-height:1.7;
+}
+
+/* =========================
+   PAGE 7 FINAL
+========================= */
+
+.final-page{
+    text-align:center;
+}
+
+.final-page .big{
+    font-size:clamp(3rem,10vw,8rem);
+    line-height:.95;
+
+    background:linear-gradient(
+        90deg,
+        #ffd75e,
+        white,
+        #b85cff,
+        #ffd75e
+    );
+
+    background-size:300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    animation:gradient 5s linear infinite;
+}
+
+.firework{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#ffd75e;
+    border-radius:50%;
+    box-shadow:
+        0 0 20px #ffd75e,
+        30px -20px 0 #b85cff,
+        -30px -25px 0 #fff,
+        20px 30px 0 #ffd75e,
+        -25px 25px 0 #b85cff;
+
+    animation:firework 2s infinite;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    z-index:9999;
+    background:rgba(255,255,255,.05);
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#7025a0,#ffd75e);
+    transition:.5s;
+}
+
+/* =========================
+   PAGE NUMBER
+========================= */
+
+.page-number{
+    position:fixed;
+    top:18px;
+    right:22px;
+    z-index:9998;
+
+    color:#9c8da7;
+    font-size:.8rem;
+    letter-spacing:2px;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes gradient{
+    to{
+        background-position:300%;
+    }
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.2;
+        transform:scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0)}
+    20%{transform:translateX(-10px)}
+    40%{transform:translateX(10px)}
+    60%{transform:translateX(-8px)}
+    80%{transform:translateX(8px)}
+}
+
+@keyframes firework{
+    0%,100%{
+        transform:scale(.5);
+        opacity:.3;
+    }
+    50%{
+        transform:scale(2);
+        opacity:1;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+    .page-content{
+        width:90%;
+        padding:70px 0 100px;
+    }
+
+    .message-card{
+        padding:25px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .photo{
+        min-height:360px;
+    }
+
+    .timeline::before{
+        left:8px;
+    }
+
+    .memory,
+    .memory:nth-child(even){
+        width:100%;
+        margin-left:0;
+        padding-left:30px;
+    }
+
+    .lock-card{
+        padding:35px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND STARS -->
+<div class="stars">
+    <span class="star" style="left:8%;top:15%;"></span>
+    <span class="star" style="left:20%;top:70%;"></span>
+    <span class="star" style="left:35%;top:25%;"></span>
+    <span class="star" style="left:50%;top:12%;"></span>
+    <span class="star" style="left:65%;top:65%;"></span>
+    <span class="star" style="left:80%;top:20%;"></span>
+    <span class="star" style="left:92%;top:75%;"></span>
+    <span class="star" style="left:45%;top:85%;"></span>
+</div>
+
+<div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<div class="page-number" id="pageNumber">
+    01 / 07
+</div>
+
+
+<!-- =====================================================
+     PAGE 1 — BIRTHDAY CHECK
+===================================================== -->
+
+<section class="page active" id="page1">
+
+    <div class="page-content center">
+
+        <div class="lock-card">
+
+            <div class="crown">👑</div>
+
+            <h1>One Little Question...</h1>
+
+            <p>
+                Before you enter this special surprise,
+                the Birthday Queen has to prove she knows
+                her own birthday. 😏
+            </p>
+
+            <p class="gold">
+                When is your birthday?
+            </p>
+
+            <input
+                type="date"
+                id="birthdayInput"
+            >
+
+            <div>
+                <button class="btn gold-btn" id="unlockBtn">
+                    🔓 Unlock Surprise
+                </button>
+            </div>
+
+            <div id="dateMessage"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 2 — WELCOME
+===================================================== -->
+
+<section class="page" id="page2">
+
+    <div class="page-content center">
+
+        <div class="welcome-ring">
+            <div class="crown">👑</div>
+        </div>
+
+        <div class="small-title">
+            The Birthday Queen Has Arrived
+        </div>
+
+        <h1 class="title">
+            Welcome,<br>
+            Isimbi Milker Queen
+        </h1>
+
+        <p class="subtitle">
+            Today is not an ordinary day.
+            Today is the day we celebrate YOU —
+            your smile, your heart, your memories,
+            your dreams and the beautiful person you are.
+        </p>
+
+        <div class="buttons">
+            <button class="btn back" onclick="goToPage(1)">
+                ← Back
+            </button>
+
+            <button class="btn gold-btn" onclick="goToPage(3)">
+                Continue →
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 3 — MESSAGE
+===================================================== -->
+
+<section class="page" id="page3">
+
+    <div class="page-content">
+
+        <div class="small-title">
+            A Message From Your Bestie
+        </div>
+
+        <h2 class="section-title">
+            To My Best Friend Forever 💕
+        </h2>
+
+        <div class="message-card">
+
+            <p class="highlight">
+                Isimbi Milker Queen,
+                also known as my amazing bestie,
+                I really appreciate you for being in my life.
+            </p>
+
+            <p>
+                Milker, today is your day, so I hope you smile,
+                laugh, celebrate and enjoy every single moment
+                with your family — DAD and MOM.
+            </p>
+
+            <p>
+                Having a best friend like you is one of those
+                beautiful gifts in life that I will always
+                appreciate and care about.
+            </p>
+
+            <p>
+                Thank you for the laughs, the conversations,
+                the mistakes I made to you then you forgave me,
+                the crazy moments, the memories and all those
+                little moments that make our friendship special.
+            </p>
+
+            <p>
+                I hope this new chapter of your life brings you
+                happiness, success, peace, love and beautiful
+                memories, and more friends.
+            </p>
+
+            <p>
+                Never forget how special you are and how much
+                you are appreciated.
+            </p>
+
+            <p>
+                No matter where life takes us, I hope we will
+                always have those memories that make us smile
+                and stay strong together. ❤️
+            </p>
+
+            <p class="highlight">
+                Happy BornDay, Bestie! 🎂❤️
+            </p>
+
+            <p>
+                From someone who is lucky to call you a best friend.
+            </p>
+
+            <p>
+                A real best friend is someone you can be yourself
+                around, and that's something I truly appreciate
+                about you.
+            </p>
+
+            <p>
+                You have a beautiful way of making the people
+                around you feel appreciated.
+            </p>
+
+            <p>
+                I genuinely hope you achieve all the dreams and
+                goals you're working toward, also the best to
+                your family.
+            </p>
+
+            <p class="highlight">
+                Happy BornDay, Milker!
+            </p>
+
+            <p>
+                May your smile stay bright,
+                your heart stay happy,
+                and your future be filled with amazing things.
+            </p>
+
+            <p>
+                Keep being the wonderful person you are.
+            </p>
+
+            <p>
+                And never forget that you have a best friend
+                cheering for you, and friends who are always
+                here for you. 🥳
+            </p>
+
+            <p class="highlight">
+                🎂 HAPPY BORNDAY ISIMBI MILKER QUEEN 🎂
+            </p>
+
+            <p class="highlight">
+                BESTIES FOREVER ❤️
+            </p>
+
+        </div>
+
+        <div class="buttons">
+
+            <button class="btn back" onclick="goToPage(2)">
+                ← Back
+            </button>
+
+            <button class="btn gold-btn" onclick="goToPage(4)">
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 4 — MEMORIES
+===================================================== -->
+
+<section class="page" id="page4">
+
+    <div class="page-content">
+
+        <div class="small-title">
+            Our Story
+        </div>
+
+        <h2 class="section-title">
+            Little Memories ✨
+        </h2>
+
+        <div class="timeline">
+
+            <div class="memory">
+                <div class="memory-card">
+                    <h3>🌟 The Beginning</h3>
+                    <p>
+                        Every friendship has a beginning.
+                        Ours became one of those memories
+                        that I will always appreciate.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory">
+                <div class="memory-card">
+                    <h3>😂 The Crazy Moments</h3>
+                    <p>
+                        The jokes, random conversations,
+                        laughter and crazy moments that only
+                        best friends understand.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory">
+                <div class="memory-card">
+                    <h3>❤️ Forgiveness</h3>
+                    <p>
+                        Even when I made mistakes,
+                        you forgave me. That is something
+                        I will never take for granted.
+                    </p>
+                </div>
+            </div>
+
+            <div class="memory">
+                <div class="memory-card">
+                    <h3>👑 Besties Forever</h3>
+                    <p>
+                        Wherever life takes us,
+                        I hope our memories continue to
+                        make us smile.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <button class="btn back" onclick="goToPage(3)">
+                ← Back
+            </button>
+
+            <button class="btn gold-btn" onclick="goToPage(5)">
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 5 — PHOTOS
+===================================================== -->
+
+<section class="page" id="page5">
+
+    <div class="page-content">
+
+        <div class="small-title">
+            Our Moments
+        </div>
+
+        <h2 class="section-title">
+            Beautiful Memories 📸
+        </h2>
+
+        <div class="gallery">
+
+            <!--
+            =================================================
+            HOW TO ADD YOUR PHOTOS
+
+            Put your images in the same folder as bestie.html.
+
+            Example:
+            milker1.jpg
+            milker2.jpg
+
+            Then replace the placeholder with:
+
+            <img src="milker1.jpg" alt="Isimbi Milker">
+
+            =================================================
+            -->
+
+            <div class="photo">
+
+                 
+                <img src="baby.png" alt="Isimbi Milker"> 
+
+             
+
+            </div>
+
+            <div class="photo">
+
+                 <img src="choosen 2.jpeg" alt="Isimbi Milker"> 
+
+             
+
+            </div>
+
+            <div class="photo">
+
+               <img src="choosen 6.jpg" alt="Isimbi Milker">
+
+            </div>
+
+            <div class="photo">
+
+              <img src="choosen 3.jpeg" alt="Isimbi Milker">
+
+              
+
+            </div>
+
+            <div class="photo">
+
+                 <img src="choosen 4.jpeg" alt="Isimbi Milker"> 
+
+               
+
+            </div>
+
+            <div class="photo">
+
+                 <img src="choosen 5.jpeg" alt="Isimbi Milker"> 
+
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <button class="btn back" onclick="goToPage(4)">
+                ← Back
+            </button>
+
+            <button class="btn gold-btn" onclick="goToPage(6)">
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 6 — APPRECIATION
+===================================================== -->
+
+<section class="page" id="page6">
+
+    <div class="page-content">
+
+        <div class="small-title">
+            Why You're Special
+        </div>
+
+        <h2 class="section-title">
+            Things I Appreciate About You 💜
+        </h2>
+
+        <div class="cards">
+
+            <div class="app-card">
+                <div class="app-icon">❤️</div>
+
+                <h3>Your Heart</h3>
+
+                <p>
+                    You have a beautiful way of making
+                    the people around you feel appreciated.
+                </p>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">😂</div>
+
+                <h3>Your Energy</h3>
+
+                <p>
+                    The laughs, crazy moments and random
+                    conversations make our friendship special.
+                </p>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">✨</div>
+
+                <h3>Your Future</h3>
+
+                <p>
+                    I genuinely hope you achieve every
+                    dream and goal you're working toward.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="buttons">
+
+            <button class="btn back" onclick="goToPage(5)">
+                ← Back
+            </button>
+
+            <button class="btn gold-btn" onclick="goToPage(7)">
+                Final Surprise → 🎁
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PAGE 7 — FINAL
+===================================================== -->
+
+<section class="page" id="page7">
+
+    <div class="firework" style="left:15%;top:25%;"></div>
+    <div class="firework" style="right:15%;top:30%;animation-delay:.5s;"></div>
+    <div class="firework" style="left:50%;top:15%;animation-delay:1s;"></div>
+
+    <div class="page-content center final-page">
+
+        <div class="crown">
+            👑
+        </div>
+
+        <div class="small-title">
+            The Final Surprise
+        </div>
+
+        <div class="final big">
+            HAPPY<br>
+            BIRTHDAY!
+        </div>
+
+        <h2 class="gold" style="margin-top:30px;font-size:clamp(1.8rem,5vw,3rem);">
+            ISIMBI MILKER QUEEN
+        </h2>
+
+        <p class="subtitle" style="margin-top:20px;">
+            May your smile stay bright,
+            your heart stay happy,
+            and your future be filled with amazing things.
+            🎂❤️
+        </p>
+
+        <p class="gold" style="font-size:1.3rem;margin-top:30px;">
+            Keep being the wonderful person you are.
+        </p>
+
+        <div style="font-size:60px;margin-top:35px;">
+            🎂 🥳 ❤️ 👑
+        </div>
+
+        <h2 style="
+            margin-top:35px;
+            font-size:clamp(2rem,7vw,5rem);
+            color:#ffd75e;
+        ">
+            BESTIES FOREVER
+        </h2>
+
+        <p class="subtitle">
+            From someone who is lucky to call you a best friend.
+        </p>
+
+        <div class="buttons">
+
+            <button class="btn back" onclick="goToPage(6)">
+                ← Back
+            </button>
+
+            <button class="btn gold-btn" onclick="restartWebsite()">
+                ↻ Start Again
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+let currentPage = 1;
+const totalPages = 7;
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const pageNumber =
+    document.getElementById("pageNumber");
+
+function goToPage(pageNumberTarget){
+
+    if(
+        pageNumberTarget < 1 ||
+        pageNumberTarget > totalPages
+    ){
+        return;
+    }
+
+    const oldPage =
+        document.getElementById("page" + currentPage);
+
+    const newPage =
+        document.getElementById("page" + pageNumberTarget);
+
+    if(!newPage){
+        return;
+    }
+
+    oldPage.classList.remove("show");
+    oldPage.classList.add("exit");
+
+    setTimeout(function(){
+
+        oldPage.classList.remove("active");
+        oldPage.classList.remove("exit");
+
+        newPage.classList.add("active");
+
+        /*
+            Small delay makes the CSS transition
+            visible.
+        */
+
+        requestAnimationFrame(function(){
+
+            newPage.classList.add("show");
+
+        });
+
+        currentPage = pageNumberTarget;
+
+        updateProgress();
+
+        /*
+            Start the page from the top.
+        */
+
+        newPage.scrollTop = 0;
+
+    },400);
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+function updateProgress(){
+
+    const percentage =
+        ((currentPage - 1) / (totalPages - 1)) * 100;
+
+    progressBar.style.width =
+        percentage + "%";
+
+    pageNumber.textContent =
+        String(currentPage).padStart(2,"0")
+        + " / "
+        + String(totalPages).padStart(2,"0");
+}
+
+
+/* =========================================================
+   INITIAL PAGE ANIMATION
+========================================================= */
+
+setTimeout(function(){
+
+    document.getElementById("page1")
+        .classList.add("show");
+
+},100);
+
+
+/* =========================================================
+   BIRTHDAY CHECK
+   CORRECT DATE = NOVEMBER 2
+========================================================= */
+
+const birthdayInput =
+    document.getElementById("birthdayInput");
+
+const unlockBtn =
+    document.getElementById("unlockBtn");
+
+const dateMessage =
+    document.getElementById("dateMessage");
+
+
+unlockBtn.addEventListener("click",function(){
+
+    const value =
+        birthdayInput.value;
+
+    if(!value){
+
+        dateMessage.textContent =
+            "👀 Choose your birthday first!";
+
+        return;
+    }
+
+    const parts =
+        value.split("-");
+
+    const month =
+        Number(parts[1]);
+
+    const day =
+        Number(parts[2]);
+
+    /*
+        We check only:
+        November = 11
+        Day = 2
+
+        The year doesn't matter.
+    */
+
+    if(month === 11 && day === 2){
+
+        dateMessage.textContent =
+            "🎉 Correct! Welcome, Birthday Queen! 👑❤️";
+
+        unlockBtn.disabled = true;
+
+        setTimeout(function(){
+
+            goToPage(2);
+
+        },1000);
+
+    }else{
+
+        const messages = [
+
+            "😂 Nope! That's not your birthday. Try again!",
+            "👀 Hmm... pick your REAL birthday!",
+            "❌ Wrong date! The surprise is waiting!",
+            "🤣 Nice try! That's not your special day!",
+            "👑 Only the Birthday Queen knows her date!"
+
+        ];
+
+        dateMessage.textContent =
+            messages[
+                Math.floor(
+                    Math.random() * messages.length
+                )
+            ];
+
+        birthdayInput.classList.remove("shake");
+
+        void birthdayInput.offsetWidth;
+
+        birthdayInput.classList.add("shake");
+
+    }
+
+});
+
+
+/* =========================================================
+   ENTER KEY
+========================================================= */
+
+birthdayInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+            unlockBtn.click();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START AGAIN
+========================================================= */
+
+function restartWebsite(){
+
+    currentPage = 7;
+
+    const current =
+        document.getElementById("page7");
+
+    current.classList.remove("show");
+
+    setTimeout(function(){
+
+        current.classList.remove("active");
+
+        const first =
+            document.getElementById("page1");
+
+        first.classList.add("active");
+
+        requestAnimationFrame(function(){
+
+            first.classList.add("show");
+
+        });
+
+        birthdayInput.value = "";
+
+        dateMessage.textContent = "";
+
+        unlockBtn.disabled = false;
+
+        currentPage = 1;
+
+        updateProgress();
+
+    },500);
+}
+
+
+/* =========================================================
+   KEYBOARD NAVIGATION
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        /*
+            Don't allow keyboard navigation
+            while entering the birthday.
+        */
+
+        if(
+            document.activeElement === birthdayInput
+        ){
+            return;
+        }
+
+        if(event.key === "ArrowRight"){
+
+            if(currentPage < totalPages){
+
+                goToPage(currentPage + 1);
+
+            }
+
+        }
+
+        if(event.key === "ArrowLeft"){
+
+            if(currentPage > 1){
+
+                goToPage(currentPage - 1);
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   TOUCH SWIPE
+========================================================= */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener(
+    "touchstart",
+    function(event){
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    }
+);
+
+document.addEventListener(
+    "touchend",
+    function(event){
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+        const difference =
+            touchStartX - touchEndX;
+
+        /*
+            Swipe left = next
+            Swipe right = previous
+        */
+
+        if(Math.abs(difference) < 70){
+            return;
+        }
+
+        if(difference > 0){
+
+            if(currentPage < totalPages){
+                goToPage(currentPage + 1);
+            }
+
+        }else{
+
+            if(currentPage > 1){
+                goToPage(currentPage - 1);
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+
